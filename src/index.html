@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WEB RPG alpha version 0.1</title>
+    <script src="../build/index.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<h1>WEB RPG alpha version 0.1</h1>
+<div class="statisticsBox">
+    <span class="statisticsText">
+        You have clicked yes: <span id="statisticsTextYes">0</span> times.<br>
+        You have clicked no: <span id="statisticsTextNo">0</span> times. <br>
+    </span>
+</div>
+<div class="gameBox">
+    <div class="textBox">
+        <span id="mainText">default text</span>
+    </div>
+    <div class="buttonsBox">
+        <button id="yesButton"
+                onclick="yes()">Yes</button>
+        <button id="noButton"
+                onclick="no()">No</button>
+    </div>
+</div>
+</body>
+</html>
