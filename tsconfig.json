@@ -5,6 +5,8 @@
     "target": "es5",
     "sourceMap": false,
     "outDir": "build"
+    //"esModuleInterop": true,
+    //"allowSyntheticDefaultImports": true
   },
   "exclude": [
     "node_modules"

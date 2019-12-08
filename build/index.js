@@ -1,18 +1,192 @@
-var yes_counter = 0;
-var no_counter = 0;
-function displayTotalPerPerson(person, total) {
-    var message = "Total for " + person + " is " + total;
-    document.getElementById("totalMessage").innerText = message;
+var textElement = document.getElementById("mainText");
+var optionButtons = document.getElementById("buttonsBox");
+var decisionsCounter = 0;
+var state = {};
+function startGame() {
+    showText(1);
+    state = {};
 }
-function yes() {
-    var yes_default = "Yes clicked.";
-    yes_counter++;
-    document.getElementById("mainText").innerText = yes_default;
-    document.getElementById("statisticsTextYes").innerText = yes_counter.toString();
+function showText(situationId) {
+    var situation = situations.find(function (situation) { return situation.id === situationId; });
+    textElement.innerText = situation.text;
+    while (optionButtons.firstChild) {
+        optionButtons.removeChild(optionButtons.firstChild);
+    }
+    situation.options.forEach(function (option) {
+        if (showOption(option)) {
+            var button = document.createElement("button");
+            button.innerText = option.text;
+            button.classList.add("button");
+            button.addEventListener("click", function () { return selectOption(option); });
+            optionButtons.appendChild(button);
+        }
+    });
 }
-function no() {
-    var no_default = "No clicked.";
-    no_counter++;
-    document.getElementById("mainText").innerText = no_default;
-    document.getElementById("statisticsTextNo").innerText = no_counter.toString();
+function showOption(option) {
+    return option.requiredState == null || option.requiredState(state);
 }
+function selectOption(option) {
+    var nextSituationId = option.nextText;
+    if (nextSituationId <= 0)
+        return startGame();
+    state = Object.assign(state, option.setState);
+    showText(nextSituationId);
+    decisionsCounter++;
+    document.getElementById("statisticsTextDecisions").innerText = decisionsCounter.toString();
+}
+var situations = [
+    {
+        id: 0,
+        text: "Restart",
+        nextText: -1,
+    },
+    {
+        id: 1,
+        text: "You wake up in a dark forest, feeling groggy.",
+        options: [
+            {
+                text: "Look around",
+                nextText: 2,
+            },
+            {
+                text: "Stay still",
+                nextText: 3,
+            }
+        ]
+    },
+    {
+        id: 2,
+        text: "You looked around, not seeing anything in particular because it is after all a dark forest.",
+        options: [
+            {
+                text: "Stay still",
+                nextText: 3,
+            },
+            {
+                text: "Do nothing and wait",
+                nextText: 3,
+            }
+        ]
+    },
+    {
+        id: 3,
+        text: "You wake up to a chicken poking you into your face. You shoo it away and it jumps and runs away with a loud \"PAAAAAA\".",
+        options: [
+            {
+                text: "Run after the chicken",
+                nextText: 4,
+            },
+            {
+                text: "Throw a rock",
+                //requiredState(currentState) => currentState.rock,
+                //setState: {rock: false},
+                nextText: 5,
+            }
+        ]
+    },
+    {
+        id: 4,
+        text: "You are running after the chicken, you cannot see it but loud clucking tells you the way.",
+        options: [
+            {
+                text: "Continue running after the chicken",
+                nextText: 4,
+            },
+            {
+                text: "Try clucking at the chicken",
+                nextText: 5,
+            }
+        ]
+    },
+    {
+        id: 5,
+        text: "Nothing happened and the chicken is lost. You are standing in the middle of the forest wandering what happened to your life and what lead to this moment.",
+        options: [
+            {
+                text: "Wonder some more",
+                nextText: 6,
+            },
+            {
+                text: "Cluck sadly",
+                nextText: 7,
+            },
+            {
+                text: "Try going somewhere",
+                nextText: 8,
+            }
+        ]
+    },
+    {
+        id: 6,
+        text: "Loud \"hmmmmmmmm\" leaves your mouth as you think harder than ever before.",
+        options: [
+            {
+                text: "Wonder some more",
+                nextText: 6,
+            },
+            {
+                text: "Cluck sadly",
+                nextText: 7,
+            },
+            {
+                text: "Try going somewhere",
+                nextText: 8,
+            }
+        ]
+    },
+    {
+        id: 7,
+        text: "You look around if you see if any more chickens that were tricked by your perfect chicken impression.",
+        options: [
+            {
+                text: "Think what to do",
+                nextText: 6,
+            },
+            {
+                text: "Cluck again",
+                nextText: 7,
+            },
+            {
+                text: "Try going somewhere",
+                nextText: 8,
+            }
+        ]
+    },
+    {
+        id: 8,
+        text: "There are trees everywhere. Where do you want to go?",
+        options: [
+            {
+                text: "Left",
+                nextText: 9,
+            },
+            {
+                text: "Right",
+                nextText: 9,
+            },
+            {
+                text: "Just go",
+                nextText: 8,
+            }
+        ]
+    },
+    {
+        id: 9,
+        text: "There's a tree in front of you. Where do you want to go?",
+        options: [
+            {
+                text: "Left",
+                nextText: 8,
+            },
+            {
+                text: "Right",
+                nextText: 8,
+            },
+            {
+                text: "Just go",
+                nextText: 8,
+            }
+        ]
+    }
+];
+startGame();
