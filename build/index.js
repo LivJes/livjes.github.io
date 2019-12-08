@@ -100,7 +100,7 @@ var situations = [
     },
     {
         id: 5,
-        text: "Nothing happened and the chicken is lost. You are standing in the middle of the forest wandering what happened to your life and what lead to this moment.",
+        text: "Nothing happened and the chicken is lost. You are standing in the middle of the forest wondering what happened to your life and what lead to this moment.",
         options: [
             {
                 text: "Wonder some more",
@@ -136,7 +136,7 @@ var situations = [
     },
     {
         id: 7,
-        text: "You look around if you see if any more chickens that were tricked by your perfect chicken impression.",
+        text: "You look around to see if any more chickens were tricked by your perfect chicken impression.",
         options: [
             {
                 text: "Think what to do",
