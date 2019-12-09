@@ -45,18 +45,20 @@ function showText(situationId) {
         inputBox.removeChild(inputBox.firstChild);
     }
     situation.options.forEach(option => {
-        if(showOption(option)) {
-            const button = document.createElement("button");
-            button.innerText = option.text;
-            button.classList.add("button");
-            button.addEventListener("click", () => selectOption(option));
-            optionButtons.appendChild(button);
-        }
+        //if(option.inventoryChange == null) {
+            if (showOption(option)) {
+                const button = document.createElement("button");
+                button.innerText = option.text;
+                button.classList.add("button");
+                button.addEventListener("click", () => selectOption(option));
+                optionButtons.appendChild(button);
+            }
+        //}
     })
 }
 
 function showOption(option) {
-    return option.requiredState == null || heroRef.hasItems(option.inventoryChange);
+    return option.inventoryChange === undefined || heroRef.hasItems(option);
 }
 
 function printStatistics() {
@@ -67,15 +69,19 @@ function printStatistics() {
 function selectOption(option) {
     const nextSituationId = option.nextText;
     if(nextSituationId <= 0) return startGame();
-    if(option.inventoryChange != null) {
+    if(option.inventoryChange != undefined) {
         Object.keys(option.inventoryChange).forEach(key => {
             heroRef.addItem(key, option.inventoryChange[key]);
         })
     }
     decisionsCounter++;
     printStatistics();
-    heroRef.printInvetory();
+    heroRef.printInventory();
+    if(option.specialEvent == 1) {
+        specialEventHandler(1);
+    }
     showText(nextSituationId);
+
 }
 
 startGame();

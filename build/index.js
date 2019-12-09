@@ -41,6 +41,7 @@ function showText(situationId) {
         inputBox.removeChild(inputBox.firstChild);
     }
     situation.options.forEach(function (option) {
+        //if(option.inventoryChange == null) {
         if (showOption(option)) {
             var button = document.createElement("button");
             button.innerText = option.text;
@@ -48,10 +49,11 @@ function showText(situationId) {
             button.addEventListener("click", function () { return selectOption(option); });
             optionButtons.appendChild(button);
         }
+        //}
     });
 }
 function showOption(option) {
-    return option.requiredState == null || heroRef.hasItems(option.inventoryChange);
+    return option.inventoryChange === undefined || heroRef.hasItems(option);
 }
 function printStatistics() {
     document.getElementById("heroicName").innerText = heroRef.name;
@@ -61,14 +63,17 @@ function selectOption(option) {
     var nextSituationId = option.nextText;
     if (nextSituationId <= 0)
         return startGame();
-    if (option.inventoryChange != null) {
+    if (option.inventoryChange != undefined) {
         Object.keys(option.inventoryChange).forEach(function (key) {
             heroRef.addItem(key, option.inventoryChange[key]);
         });
     }
     decisionsCounter++;
     printStatistics();
-    heroRef.printInvetory();
+    heroRef.printInventory();
+    if (option.specialEvent == 1) {
+        specialEventHandler(1);
+    }
     showText(nextSituationId);
 }
 startGame();

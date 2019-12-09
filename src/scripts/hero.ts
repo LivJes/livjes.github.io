@@ -4,7 +4,9 @@ class Hero {
     inventory: {[key:string]: number} = {};
 
     constructor(newName: string) {
-        this.name = newName;
+        if(newName != "") {
+            this.name = newName;
+        }
         this.hp = 100;
     }
 
@@ -17,23 +19,30 @@ class Hero {
             this.inventory[item] = amount;
         } else {
             this.inventory[item] += amount;
+            if(this.inventory[item] < 0) this.inventory[item] = 0;
         }
     }
 
-    printInvetory() {
+    printInventory() {
         let inventoryText :string = "";
         Object.keys(this.inventory).forEach(key => {
             if(this.inventory[key] != 0) {
-                inventoryText = key + ": " + this.inventory[key] + "\n";
+                inventoryText = inventoryText + "\n"+  key + ": " + this.inventory[key];
             }
         });
         document.getElementById("inventory").innerText = inventoryText;
     }
 
-    hasItems(invetoryChange) {
-        Object.keys(invetoryChange).forEach(key => {
-            if(this.inventory[key] === undefined || this.inventory[key] == 0) return false;
-        });
+    hasItem(item:string) {
+        return !(this.inventory[item] === undefined || this.inventory[item] === 0);
+    }
+
+    hasItems(option) {
+        for(let key in option.inventoryChange) {
+            if(option.inventoryChange[key] < 0) {
+                if (!this.hasItem(key)) return false;
+            }
+        }
         return true;
     }
 }
