@@ -4,8 +4,8 @@
     "watch": true,
     "target": "es5",
     "sourceMap": false,
-    "outDir": "build"
-    //"esModuleInterop": true,
+    "outDir": "build",
+    "esModuleInterop": true
     //"allowSyntheticDefaultImports": true
   },
   "exclude": [
