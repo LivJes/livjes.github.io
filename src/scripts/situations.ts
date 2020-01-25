@@ -323,6 +323,7 @@ const situations = [
             {
                 text: "Bet one silver",
                 inventoryChange: {silverCoin: -1},
+                specialEvent: 0,
                 nextText: 23,
             },
         ]
@@ -333,6 +334,7 @@ const situations = [
         options: [
             {
                 text: "Play",
+                specialEvent: 0,
                 nextText: 23,
             },
         ]

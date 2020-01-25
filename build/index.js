@@ -71,9 +71,12 @@ function selectOption(option) {
     decisionsCounter++;
     printStatistics();
     heroRef.printInventory();
-    if (option.specialEvent == 1) {
-        specialEventHandler(1);
+    if (option.specialEvent == 1 || option.specialEvent == 0) {
+        document.getElementById("debugText").innerText = "right option";
+        specialEventHandler(option.specialEvent);
     }
-    showText(nextSituationId);
+    else {
+        showText(nextSituationId);
+    }
 }
 startGame();

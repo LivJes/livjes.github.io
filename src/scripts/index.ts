@@ -2,7 +2,6 @@ const textElement = document.getElementById("mainText");
 const optionButtons = document.getElementById("buttonsBox");
 const inputBox = document.getElementById("inputBox");
 let decisionsCounter = 0;
-
 let heroRef: Hero;
 
 function setName(name: string) {
@@ -77,10 +76,12 @@ function selectOption(option) {
     decisionsCounter++;
     printStatistics();
     heroRef.printInventory();
-    if(option.specialEvent == 1) {
-        specialEventHandler(1);
+    if(option.specialEvent == 1 || option.specialEvent == 0) {
+        document.getElementById("debugText").innerText="right option";
+        specialEventHandler(option.specialEvent);
+    } else {
+        showText(nextSituationId);
     }
-    showText(nextSituationId);
 
 }
 
