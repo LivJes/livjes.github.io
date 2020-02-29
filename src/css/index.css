@@ -50,6 +50,10 @@ h1 {
     font-size: 120%;
 }
 
+.inventory{
+    font-family: "Roboto Light", sans-serif;
+}
+
 .buttonsBox {
     display: flex;
     flex-direction: row;
