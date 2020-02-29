@@ -1,7 +1,7 @@
 class Hero {
     name:string = "Bob";
     hp:number;
-    inventory: {[key:string]: number} = {};
+    inventory: {[key:string]: number} = {silverCoin: 500};
 
     constructor(newName: string) {
         if(newName != "") {
@@ -40,9 +40,8 @@ class Hero {
     hasItems(option) {
         for(let key in option.inventoryChange) {
             if(option.inventoryChange[key] < 0) {
-                if (!this.hasItem(key)) return false;
+                return this.hasItem(key);
             }
         }
-        return true;
     }
 }

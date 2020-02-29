@@ -51,6 +51,7 @@ function showText(situationId) {
         }
         //}
     });
+    // TODO function for saving progress into LocalStorage (html5)
 }
 function showOption(option) {
     return option.inventoryChange === undefined || heroRef.hasItems(option);
@@ -63,6 +64,7 @@ function selectOption(option) {
     var nextSituationId = option.nextText;
     if (nextSituationId <= 0)
         return startGame();
+    // TODO function for money change between coins
     if (option.inventoryChange != undefined) {
         Object.keys(option.inventoryChange).forEach(function (key) {
             heroRef.addItem(key, option.inventoryChange[key]);

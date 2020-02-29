@@ -1,7 +1,7 @@
 var Hero = /** @class */ (function () {
     function Hero(newName) {
         this.name = "Bob";
-        this.inventory = {};
+        this.inventory = { silverCoin: 500 };
         if (newName != "") {
             this.name = newName;
         }
@@ -36,11 +36,9 @@ var Hero = /** @class */ (function () {
     Hero.prototype.hasItems = function (option) {
         for (var key in option.inventoryChange) {
             if (option.inventoryChange[key] < 0) {
-                if (!this.hasItem(key))
-                    return false;
+                return this.hasItem(key);
             }
         }
-        return true;
     };
     return Hero;
 }());

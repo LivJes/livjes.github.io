@@ -54,6 +54,7 @@ function showText(situationId) {
             }
         //}
     })
+    // TODO function for saving progress into LocalStorage (html5)
 }
 
 function showOption(option) {
@@ -68,6 +69,7 @@ function printStatistics() {
 function selectOption(option) {
     const nextSituationId = option.nextText;
     if(nextSituationId <= 0) return startGame();
+    // TODO function for money change between coins
     if(option.inventoryChange != undefined) {
         Object.keys(option.inventoryChange).forEach(key => {
             heroRef.addItem(key, option.inventoryChange[key]);
