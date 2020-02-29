@@ -597,7 +597,7 @@ var situations = [
     },
     {
         id: 35,
-        text: "\"That's it? Come on man! Buy moooooore.\"",
+        text: "\"That's it? Come on man! Buy the expensive stuff.\"",
         options: [
             {
                 text: "Trade",
