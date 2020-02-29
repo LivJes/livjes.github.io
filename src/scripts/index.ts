@@ -79,7 +79,6 @@ function selectOption(option) {
     printStatistics();
     heroRef.printInventory();
     if(option.specialEvent == 1 || option.specialEvent == 0) {
-        document.getElementById("debugText").innerText="right option";
         specialEventHandler(option.specialEvent);
     } else {
         showText(nextSituationId);
