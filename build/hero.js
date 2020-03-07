@@ -2,6 +2,7 @@ var Hero = /** @class */ (function () {
     function Hero(newName) {
         this.name = "Bob";
         this.inventory = { silverCoin: 500 };
+        this.knowledge = { secretPassword: 0 };
         if (newName != "") {
             this.name = newName;
         }
@@ -30,15 +31,47 @@ var Hero = /** @class */ (function () {
         });
         document.getElementById("inventory").innerText = inventoryText;
     };
-    Hero.prototype.hasItem = function (item) {
-        return !(this.inventory[item] === undefined || this.inventory[item] === 0);
+    Hero.prototype.printKnowledge = function () {
+        var _this = this;
+        var knowledgeText = "";
+        Object.keys(this.knowledge).forEach(function (key) {
+            //if(this.knowledge[key] != 0) {
+            knowledgeText = knowledgeText + "\n" + key + ": " + _this.knowledge[key];
+            // }
+        });
+        document.getElementById("knowledge").innerText = knowledgeText;
+    };
+    Hero.prototype.hasItem = function (item, amount) {
+        return !(this.inventory[item] === undefined || this.inventory[item] === 0 || this.inventory[item] - amount < 0);
     };
     Hero.prototype.hasItems = function (option) {
         for (var key in option.inventoryChange) {
             if (option.inventoryChange[key] < 0) {
-                return this.hasItem(key);
+                if (!this.hasItem(key, option.inventoryChange[key]))
+                    return false;
             }
         }
+        return true;
+    };
+    Hero.prototype.learn = function (information, amount) {
+        if (this.knowledge[information] === undefined) {
+            this.knowledge[information] = amount;
+        }
+        else {
+            this.knowledge[information] += amount;
+            if (this.knowledge[information] < 0)
+                this.knowledge[information] = 0;
+        }
+    };
+    Hero.prototype.hasInformation = function (information, amount) {
+        return !(this.knowledge[information] === undefined || this.knowledge[information] === 0 || this.knowledge[information] - amount < 0);
+    };
+    Hero.prototype.hasKnowledge = function (option) {
+        for (var key in option.knowledgeNeeded) {
+            if (!this.hasInformation(key, option.knowledgeNeeded[key]))
+                return false;
+        }
+        return true;
     };
     return Hero;
 }());

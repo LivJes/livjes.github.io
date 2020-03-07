@@ -732,6 +732,11 @@ var situations = [
                 nextText: 41,
             },
             {
+                text: "\"The paddle has been lost. Oceans are angry.\"",
+                knowledgeNeeded: { secretPassword: 1 },
+                nextText: 42,
+            },
+            {
                 text: "Leave the door",
                 nextText: 38,
             },
@@ -755,6 +760,20 @@ var situations = [
             },
             {
                 text: "Leave the door",
+                nextText: 38,
+            },
+        ]
+    },
+    {
+        id: 42,
+        text: "The door opens and you see a dark, wet passage. You can hear weird noises coming from the other side. It seems like you entered a dungeon.",
+        options: [
+            {
+                text: "Continue",
+                nextText: 42,
+            },
+            {
+                text: "Run back to safety",
                 nextText: 38,
             },
         ]

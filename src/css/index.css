@@ -54,6 +54,10 @@ h1 {
     font-family: "Roboto Light", sans-serif;
 }
 
+.knowledge{
+    font-family: "Roboto Light", sans-serif;
+}
+
 .buttonsBox {
     display: flex;
     flex-direction: row;

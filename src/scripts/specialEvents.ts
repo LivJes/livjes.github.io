@@ -39,11 +39,18 @@ function fortune() {
         "\"You'll drop your sword when you'll need it the most.\"",
         "\"I don't think it is important for you to know what's coming. It will come anyway.\"",
         "\"Have you met the frog yet? No? Nevermind then.\"",
+        "\"Your future is really boring, this was a waste of money to be honest.\"",
+        "\"From what I see you shouldn't throw your money away like this.\"",
+        "\"You'll find a really shady looking door. If that happens, you have to say these words: \"The paddle has been lost. Oceans are angry.\"\""
     ];
     while(optionButtons.firstChild) {
         optionButtons.removeChild(optionButtons.firstChild);
     }
     textElement.innerText = fortunes[(Math.random() * fortunes.length) | 0];
+    if(textElement.innerText == "\"You'll find a really shady looking door. If that happens, you have to say these words: \"The paddle has been lost. Oceans are angry.\"\"") {
+        heroRef.learn("secretPassword", 1);
+        heroRef.printKnowledge();
+    }
     const button = document.createElement("button");
     button.innerText = "\"Okay\"";
     button.classList.add("button");

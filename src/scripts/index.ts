@@ -44,7 +44,6 @@ function showText(situationId) {
         inputBox.removeChild(inputBox.firstChild);
     }
     situation.options.forEach(option => {
-        //if(option.inventoryChange == null) {
             if (showOption(option)) {
                 const button = document.createElement("button");
                 button.innerText = option.text;
@@ -52,13 +51,12 @@ function showText(situationId) {
                 button.addEventListener("click", () => selectOption(option));
                 optionButtons.appendChild(button);
             }
-        //}
     })
     // TODO function for saving progress into LocalStorage (html5)
 }
 
 function showOption(option) {
-    return option.inventoryChange === undefined || heroRef.hasItems(option);
+    return (option.inventoryChange === undefined || heroRef.hasItems(option)) && (option.knowledgeNeeded === undefined || heroRef.hasKnowledge(option));
 }
 
 function printStatistics() {
@@ -78,6 +76,7 @@ function selectOption(option) {
     decisionsCounter++;
     printStatistics();
     heroRef.printInventory();
+    heroRef.printKnowledge();
     if(option.specialEvent == 1 || option.specialEvent == 0) {
         specialEventHandler(option.specialEvent);
     } else {
