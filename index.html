@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>WEB RPG alpha version 0.1</title>
-    <script defer src="build/index.js"></script>
     <script defer src="build/hero.js"></script>
-    <script defer src="build/situations.js"></script>
     <script defer src="build/specialEvents.js"></script>
+    <script defer src="build/saver.js"></script>
+    <script defer src="build/situations.js"></script>
+    <script defer src="build/index.js"></script>
     <link rel="stylesheet" href="src/css/index.css">
 </head>
 <body>
 <h1>WEB RPG alpha version 0.1</h1>
 <div class="game">
-    <div class="statisticsBox">
+    <div id="statisticsBox" class="statisticsBox">
         <span id="heroicName" class="heroicName"></span><br>
         <span id="inventory" class="inventory"></span><br>
         <span id="knowledge" class="knowledge"></span><br>
@@ -20,7 +21,7 @@
             Decisions made: <span id="statisticsTextDecisions">0</span>.<br>
         </span>
     </div>
-    <div class="gameBox">
+    <div id="gameBox" class="gameBox">
         <div class="textBox" id ="mainText">Text</div>
         <div class="inputBox" id="inputBox"></div>
        <div id="buttonsBox" class="buttonsBox"></div>
@@ -28,6 +29,9 @@
 </div>
 <div class="debugText">
     Debug: <span id="debugText"></span>
+</div>
+<div class="deleteSave">
+    <button onclick="deleteSave()">Delete Save</button>
 </div>
 </body>
 </html>

@@ -1,4 +1,5 @@
 class Hero {
+    stage:number = 0;
     name:string = "Bob";
     hp:number;
     inventory: {[key:string]: number} = {silverCoin: 500};
@@ -75,5 +76,13 @@ class Hero {
             if(!this.hasInformation(key, option.knowledgeNeeded[key])) return false;
         }
         return true;
+    }
+
+    setStage(stage:number) {
+        this.stage = stage;
+    }
+
+    getStage() {
+        return this.stage;
     }
 }

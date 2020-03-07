@@ -6,30 +6,39 @@ h1 {
 .game {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: stretch;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
 }
 
 .statisticsBox{
-    width:10%;
-    display: flex;
+    width:auto;
+    display: none;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: flex-start;
     align-content: stretch;
-    margin-left: 5px;
+    margin: 15px 15px 15px 15px;
+    border-radius: 18px 18px 18px 18px;
+    -moz-border-radius: 18px 18px 18px 18px;
+    -webkit-border-radius: 18px 18px 18px 18px;
+    border: 0 solid #000000;
+    -webkit-box-shadow: 10px 10px 12px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 12px -9px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 12px -9px rgba(0,0,0,0.75);
+    background: rgba(15, 15, 15, 0.3);
 }
 .gameBox{
-    width:80%;
+    width:100%;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
-    align-content: stretch;
+    align-content: center;
+    margin: 15px 15px 15px 15px;
     border-radius: 18px 18px 18px 18px;
     -moz-border-radius: 18px 18px 18px 18px;
     -webkit-border-radius: 18px 18px 18px 18px;
@@ -46,15 +55,18 @@ h1 {
 }
 
 .heroicName{
+    margin: 10px 10px 5px 10px;
     font-family: "Roboto Light",sans-serif;
     font-size: 120%;
 }
 
 .inventory{
+    margin: 0px 10px 5px 10px;
     font-family: "Roboto Light", sans-serif;
 }
 
 .knowledge{
+    margin: 0px 10px 10px 10px;
     font-family: "Roboto Light", sans-serif;
 }
 
@@ -73,5 +85,11 @@ h1 {
 }
 
 .statisticsText{
+    margin: 10px;
     font-family: "Roboto Light", sans-serif;
+}
+
+.deleteSave {
+    float: left;
+    margin: 5px;
 }

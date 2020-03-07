@@ -2,7 +2,7 @@ const textElement = document.getElementById("mainText");
 const optionButtons = document.getElementById("buttonsBox");
 const inputBox = document.getElementById("inputBox");
 let decisionsCounter = 0;
-let heroRef: Hero;
+let heroRef: Hero = null;
 
 function setName(name: string) {
     while (inputBox.firstChild) {
@@ -12,6 +12,8 @@ function setName(name: string) {
         optionButtons.removeChild(optionButtons.firstChild);
     }
     heroRef = new Hero(name);
+    document.getElementById("statisticsBox").style.display = "flex";
+    document.getElementById("gameBox").style.width = "80%";
     textElement.innerText = "It isn't a very good name but okay. So " + heroRef.name + " now that that's settled let me introduce myself. I'm Shady the shady person. We will meet again sometime. Now turn around."
     document.getElementById("heroicName").innerText = heroRef.name;
     const button = document.createElement("button");
@@ -22,19 +24,29 @@ function setName(name: string) {
 }
 
 function startGame() {
-    textElement.innerText = "You! Hey you! Yes, you. Come here. Do you remember your name? Nevermind, we will give you a new name. What do you want me to call you?"
-    const input = document.createElement("input");
-    input.classList.add("inputBox");
-    input.setAttribute('type', 'text');
-    inputBox.appendChild(input);
-    const button = document.createElement("button");
-    button.innerText = "Yes that's my name.";
-    button.classList.add("button");
-    button.addEventListener("click",() => setName(input.value));
-    optionButtons.appendChild(button);
+    loadGame();
+    if(heroRef == null) {
+        textElement.innerText = "You! Hey you! Yes, you. Come here. Do you remember your name? Nevermind, we will give you a new name. What do you want me to call you?"
+        const input = document.createElement("input");
+        input.classList.add("inputBox");
+        input.setAttribute('type', 'text');
+        inputBox.appendChild(input);
+        const button = document.createElement("button");
+        button.innerText = "Yes that's my name.";
+        button.classList.add("button");
+        button.addEventListener("click",() => setName(input.value));
+        optionButtons.appendChild(button);
+    } else {
+        showText(heroRef.stage);
+        document.getElementById("statisticsBox").style.display = "flex";
+        document.getElementById("gameBox").style.width = "80%";
+    }
 }
 
-function showText(situationId) {
+function showText(situationId:number) {
+    heroRef.setStage(situationId);
+    document.getElementById("debugText").innerText = heroRef.stage.toString();
+    saveGame();
     const situation = situations.find(situation => situation.id === situationId);
     textElement.innerText = situation.text;
     while(optionButtons.firstChild) {

@@ -1,5 +1,6 @@
 var Hero = /** @class */ (function () {
     function Hero(newName) {
+        this.stage = 0;
         this.name = "Bob";
         this.inventory = { silverCoin: 500 };
         this.knowledge = { secretPassword: 0 };
@@ -72,6 +73,12 @@ var Hero = /** @class */ (function () {
                 return false;
         }
         return true;
+    };
+    Hero.prototype.setStage = function (stage) {
+        this.stage = stage;
+    };
+    Hero.prototype.getStage = function () {
+        return this.stage;
     };
     return Hero;
 }());
