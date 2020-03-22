@@ -19,7 +19,7 @@ function setName(name: string) {
     const button = document.createElement("button");
     button.innerText = "Turn around";
     button.classList.add("button");
-    button.addEventListener("click",() => showText(1));
+    button.addEventListener("click",() => showText(1, "prologue"));
     optionButtons.appendChild(button);
 }
 
@@ -37,17 +37,17 @@ function startGame() {
         button.addEventListener("click",() => setName(input.value));
         optionButtons.appendChild(button);
     } else {
-        showText(heroRef.stage);
+        showText(heroRef.stage.id, heroRef.stage.name);
         document.getElementById("statisticsBox").style.display = "flex";
         document.getElementById("gameBox").style.width = "80%";
     }
 }
 
-function showText(situationId:number) {
-    heroRef.setStage(situationId);
-    document.getElementById("debugText").innerText = heroRef.stage.toString();
+function showText(situationId:number, situationName:string) {
+    heroRef.setStage(situationId, situationName);
+    document.getElementById("debugText").innerText = heroRef.stage.id.toString() +" "+ heroRef.stage.name.toString();
     saveGame();
-    const situation = situations.find(situation => situation.id === situationId);
+    const situation = window[situationName].find(situation => situation.id === situationId);
     textElement.innerText = situation.text;
     while(optionButtons.firstChild) {
         optionButtons.removeChild(optionButtons.firstChild);
@@ -60,11 +60,10 @@ function showText(situationId:number) {
                 const button = document.createElement("button");
                 button.innerText = option.text;
                 button.classList.add("button");
-                button.addEventListener("click", () => selectOption(option));
+                button.addEventListener("click", () => selectOption(option, situationName));
                 optionButtons.appendChild(button);
             }
     })
-    // TODO function for saving progress into LocalStorage (html5)
 }
 
 function showOption(option) {
@@ -76,7 +75,7 @@ function printStatistics() {
     document.getElementById("statisticsTextDecisions").innerText = decisionsCounter.toString();
 }
 
-function selectOption(option) {
+function selectOption(option, situationName:string) {
     const nextSituationId = option.nextText;
     if(nextSituationId <= 0) return startGame();
     // TODO function for money change between coins
@@ -92,7 +91,8 @@ function selectOption(option) {
     if(option.specialEvent == 1 || option.specialEvent == 0) {
         specialEventHandler(option.specialEvent);
     } else {
-        showText(nextSituationId);
+        if(option.situation != undefined) situationName = option.situation;
+        showText(nextSituationId, situationName);
     }
 
 }

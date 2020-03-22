@@ -1,5 +1,5 @@
 class Hero {
-    stage:number = 0;
+    stage: {id:number, name:string} = {id:0, name:"prologue"};
     name:string = "Bob";
     hp:number;
     inventory: {[key:string]: number} = {silverCoin: 500};
@@ -78,8 +78,9 @@ class Hero {
         return true;
     }
 
-    setStage(stage:number) {
-        this.stage = stage;
+    setStage(stage:number, stageName:string) {
+        this.stage.id = stage;
+        this.stage.name = stageName;
     }
 
     getStage() {

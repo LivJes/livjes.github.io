@@ -18,7 +18,7 @@ function setName(name) {
     var button = document.createElement("button");
     button.innerText = "Turn around";
     button.classList.add("button");
-    button.addEventListener("click", function () { return showText(1); });
+    button.addEventListener("click", function () { return showText(1, "prologue"); });
     optionButtons.appendChild(button);
 }
 function startGame() {
@@ -36,16 +36,16 @@ function startGame() {
         optionButtons.appendChild(button);
     }
     else {
-        showText(heroRef.stage);
+        showText(heroRef.stage.id, heroRef.stage.name);
         document.getElementById("statisticsBox").style.display = "flex";
         document.getElementById("gameBox").style.width = "80%";
     }
 }
-function showText(situationId) {
-    heroRef.setStage(situationId);
-    document.getElementById("debugText").innerText = heroRef.stage.toString();
+function showText(situationId, situationName) {
+    heroRef.setStage(situationId, situationName);
+    document.getElementById("debugText").innerText = heroRef.stage.id.toString() + " " + heroRef.stage.name.toString();
     saveGame();
-    var situation = situations.find(function (situation) { return situation.id === situationId; });
+    var situation = window[situationName].find(function (situation) { return situation.id === situationId; });
     textElement.innerText = situation.text;
     while (optionButtons.firstChild) {
         optionButtons.removeChild(optionButtons.firstChild);
@@ -58,11 +58,10 @@ function showText(situationId) {
             var button = document.createElement("button");
             button.innerText = option.text;
             button.classList.add("button");
-            button.addEventListener("click", function () { return selectOption(option); });
+            button.addEventListener("click", function () { return selectOption(option, situationName); });
             optionButtons.appendChild(button);
         }
     });
-    // TODO function for saving progress into LocalStorage (html5)
 }
 function showOption(option) {
     return (option.inventoryChange === undefined || heroRef.hasItems(option)) && (option.knowledgeNeeded === undefined || heroRef.hasKnowledge(option));
@@ -71,7 +70,7 @@ function printStatistics() {
     document.getElementById("heroicName").innerText = heroRef.name;
     document.getElementById("statisticsTextDecisions").innerText = decisionsCounter.toString();
 }
-function selectOption(option) {
+function selectOption(option, situationName) {
     var nextSituationId = option.nextText;
     if (nextSituationId <= 0)
         return startGame();
@@ -89,7 +88,9 @@ function selectOption(option) {
         specialEventHandler(option.specialEvent);
     }
     else {
-        showText(nextSituationId);
+        if (option.situation != undefined)
+            situationName = option.situation;
+        showText(nextSituationId, situationName);
     }
 }
 startGame();

@@ -1,4 +1,4 @@
-var situations = [
+/*const situations = [
     {
         id: 0,
         text: "Restart",
@@ -32,7 +32,7 @@ var situations = [
             },
             {
                 text: "Pick up a rock and look at it intensely",
-                inventoryChange: { rock: 1 },
+                inventoryChange: {rock: 1},
                 nextText: 3,
             }
         ]
@@ -47,7 +47,7 @@ var situations = [
             },
             {
                 text: "Throw a rock",
-                inventoryChange: { rock: -1 },
+                inventoryChange: {rock: -1},
                 nextText: 5,
             }
         ]
@@ -186,11 +186,11 @@ var situations = [
             },
             {
                 text: "Go check out the weird shop",
-                nextText: 24,
+                nextText:  24,
             },
             {
                 text: "Go to the marketplace",
-                nextText: 28,
+                nextText:  28,
             },
         ]
     },
@@ -246,7 +246,7 @@ var situations = [
         options: [
             {
                 text: "Order a mead",
-                inventoryChange: { silverCoin: -1 },
+                inventoryChange: {silverCoin: -1},
                 nextText: 17,
             },
             {
@@ -261,7 +261,7 @@ var situations = [
         options: [
             {
                 text: "Order a mead",
-                inventoryChange: { silverCoin: -1 },
+                inventoryChange: {silverCoin: -1},
                 nextText: 17,
             },
             {
@@ -322,7 +322,7 @@ var situations = [
             },
             {
                 text: "Bet one silver",
-                inventoryChange: { silverCoin: -1 },
+                inventoryChange: {silverCoin: -1},
                 specialEvent: 0,
                 nextText: 23,
             },
@@ -330,7 +330,7 @@ var situations = [
     },
     {
         id: 22,
-        text: "\"Doesn't matter. If you win I'll give you one. If you lose, well you lose.\"",
+        text: "\"Doesn't matter. If you win I'll give you one. If you lose, well you lose.\"",     //TODO rng money generator..good or not?
         options: [
             {
                 text: "Play",
@@ -346,7 +346,7 @@ var situations = [
             {
                 text: "Bet one silver",
                 specialEvent: 0,
-                inventoryChange: { silverCoin: -1 },
+                inventoryChange: {silverCoin: -1},
                 nextText: 23,
             },
             {
@@ -405,22 +405,22 @@ var situations = [
         options: [
             {
                 text: "Buy a nice looking, probably magical dagger",
-                inventoryChange: { goldCoin: -1, magicalDagger: 1 },
+                inventoryChange: {goldCoin: -1, magicalDagger: 1},
                 nextText: 26,
             },
             {
                 text: "Buy troll ear wax",
-                inventoryChange: { silverCoin: -1, trollEarVax: 1 },
+                inventoryChange: {silverCoin: -1, trollEarVax: 1},
                 nextText: 26,
             },
             {
                 text: "Buy dragon bone dust",
-                inventoryChange: { silverCoin: -1, dragonBoneDust: 1 },
+                inventoryChange: {silverCoin: -1, dragonBoneDust: 1},
                 nextText: 26,
             },
             {
                 text: "Buy piece of nice cloth",
-                inventoryChange: { silverCoin: -1, niceCloth: 1 },
+                inventoryChange: {silverCoin: -1, niceCloth: 1},
                 nextText: 26,
             },
             {
@@ -496,286 +496,287 @@ var situations = [
             {
                 text: "Trade",
                 nextText: 32,
-            },
-            /*{
-                text: "Upgrade equipment",
-                nextText: 33,
             },*/
-            {
-                text: "Leave",
-                nextText: 38,
-            },
-        ]
-    },
-    {
-        id: 31,
-        text: "\"Anything else?\" He is still sweating.",
-        options: [
-            {
-                text: "Trade",
-                nextText: 32,
-            },
-            /*{
-                text: "Upgrade equipment",
-                nextText: 33,
-            },*/
-            {
-                text: "Leave",
-                nextText: 38,
-            },
-        ]
-    },
-    {
-        id: 32,
-        text: "\"All of this is an honest work, so don't expect any low prices.\"",
-        options: [
-            {
-                text: "Buy a short sword.",
-                inventoryChange: { goldCoin: -1, shortSword: 1 },
-                nextText: 32,
-            },
-            {
-                text: "Buy 5 arrows.",
-                inventoryChange: { silverCoin: -5, arrows: 5 },
-                nextText: 32,
-            },
-            {
-                text: "Buy plate armor.",
-                inventoryChange: { goldCoin: -10, plateArmor: 1 },
-                nextText: 32,
-            },
-            {
-                text: "Buy steel helmet",
-                inventoryChange: { goldCoin: -5, steelHelmet: 1 },
-                nextText: 32,
-            },
-            {
-                text: "Talk about something else.",
-                nextText: 31,
-            },
-        ]
-    },
-    {
-        id: 33,
-        text: "\"Show me what you want to upgrade\"\"",
-        options: [
-            {
-                text: "Weapon",
-                //TODO special event upgrade
-                inventoryChange: { silverCoin: -1 },
-                nextText: 33,
-            },
-            {
-                text: "Armor",
-                //TODO special event upgrade
-                inventoryChange: { silverCoin: -1 },
-                nextText: 33,
-            },
-            {
-                text: "Talk about something else.",
-                nextText: 31,
-            },
-        ]
-    },
-    {
-        id: 34,
-        text: "As you approach what looks like an exploded laboratory a tiny gnome with glasses shouts at you excitedly: \"Hello! Hello! Come closer and see what Bilji Sizzlebang has to offer!\"",
-        options: [
-            {
-                text: "Trade",
-                nextText: 36,
-            },
-            {
-                text: "\"Can you teach me alchemy?\"",
-                nextText: 37,
-            },
-            {
-                text: "Leave",
-                nextText: 38,
-            },
-        ]
-    },
-    {
-        id: 35,
-        text: "\"That's it? Come on man! Buy the expensive stuff.\"",
-        options: [
-            {
-                text: "Trade",
-                nextText: 36,
-            },
-            {
-                text: "\"Can you teach me alchemy?\"",
-                nextText: 37,
-            },
-            {
-                text: "Leave",
-                nextText: 38,
-            },
-        ]
-    },
-    {
-        id: 36,
-        text: "\"A potion to calm your mind maybe? Or to make you *winks* better with the ladies? OH! I know! A Cursed Curse Remover!\"",
-        options: [
-            {
-                text: "Buy 'Cursed Curse Remover', you can see warning signs all over the bottle",
-                inventoryChange: { silverCoin: -5, cursedCurseRemover: 1 },
-                nextText: 36,
-            },
-            {
-                text: "Buy a health potion.",
-                inventoryChange: { silverCoin: -2, healthPotion: 1 },
-                nextText: 36,
-            },
-            {
-                text: "Buy 'BetterWithLadiez' potion. Probably a scam though.",
-                inventoryChange: { goldCoin: -1, betterWithLadiezPotion: 1 },
-                nextText: 36,
-            },
-            {
-                text: "Buy Tranquility Potion",
-                inventoryChange: { silverCoin: -5, tranquilityPotion: 1 },
-                nextText: 36,
-            },
-            {
-                text: "Talk about something else.",
-                nextText: 35,
-            },
-        ]
-    },
-    {
-        id: 37,
-        text: "He stops abruptly, as to think deeply, you wait and wait. Suddenly the silence is broken by a swift \"No.\"",
-        options: [
-            {
-                text: "Ok",
-                nextText: 35,
-            },
-            {
-                text: "Mutter curse words under your nose.",
-                nextText: 35,
-            },
-            {
-                text: "Talk about something else.",
-                nextText: 35,
-            },
-        ]
-    },
-    {
-        id: 38,
-        text: "As you walk further through the marketplace you see a shady looking door. You walk past it and you can hear people shouting and yelling over something. You can also see a boat at the port.",
-        options: [
-            {
-                text: "Investigate the shady looking door.",
-                nextText: 39,
-            },
-            {
-                // TODO fight special event
-                text: "See what's the yelling about.",
-                nextText: 38,
-            },
-            {
-                // TODO travel event
-                text: "Go check the boat.",
-                nextText: 38,
-            },
-            {
-                text: "Go back to the blacksmith",
-                nextText: 30,
-            },
-            {
-                text: "Go back to alchemist shop",
-                nextText: 34,
-            },
-            {
-                text: "Go back to town square.",
-                nextText: 12,
-            },
-        ]
-    },
-    {
-        id: 39,
-        text: "You approach the door, weird humming noise comes from behind the door.",
-        options: [
-            {
-                text: "\"Hello?\"",
-                nextText: 40,
-            },
-            {
-                text: "Knock",
-                nextText: 40,
-            },
-            {
-                text: "Knock three times",
-                nextText: 41,
-            },
-            {
-                text: "Leave the door",
-                nextText: 38,
-            },
-        ]
-    },
-    {
-        id: 40,
-        text: "A faint demonic whispers can be heard from the other side of the door: \"...paaaaassword...\"",
-        options: [
-            {
-                text: "\"Hello?\"",
-                nextText: 40,
-            },
-            {
-                text: "Knock",
-                nextText: 40,
-            },
-            {
-                text: "Knock three times",
-                nextText: 41,
-            },
-            {
-                text: "\"The paddle has been lost. Oceans are angry.\"",
-                knowledgeNeeded: { secretPassword: 1 },
-                nextText: 42,
-            },
-            {
-                text: "Leave the door",
-                nextText: 38,
-            },
-        ]
-    },
-    {
-        id: 41,
-        text: "Something from the other side hits the door with unbelievable force. You are suprised but happy that the door withstanded it.",
-        options: [
-            {
-                text: "\"Hello?\"",
-                nextText: 40,
-            },
-            {
-                text: "Knock",
-                nextText: 40,
-            },
-            {
-                text: "Knock three times",
-                nextText: 41,
-            },
-            {
-                text: "Leave the door",
-                nextText: 38,
-            },
-        ]
-    },
-    {
-        id: 42,
-        text: "The door opens and you see a dark, wet passage. You can hear weird noises coming from the other side. It seems like you entered a dungeon.",
-        options: [
-            {
-                text: "Continue",
-                nextText: 42,
-            },
-            {
-                text: "Run back to safety",
-                nextText: 38,
-            },
-        ]
-    },
-];
+/*{
+    text: "Upgrade equipment",
+    nextText: 33,
+},*/
+/*{
+    text: "Leave",
+    nextText: 38,
+},
+]
+},
+{
+id: 31,
+text: "\"Anything else?\" He is still sweating.",
+options: [
+{
+    text: "Trade",
+    nextText: 32,
+},*/
+/*{
+    text: "Upgrade equipment",
+    nextText: 33,
+},*/
+/*{
+    text: "Leave",
+    nextText: 38,
+},
+]
+},
+{
+id: 32,
+text: "\"All of this is an honest work, so don't expect any low prices.\"",
+options: [
+{
+    text: "Buy a short sword.",
+    inventoryChange: {goldCoin: -1, shortSword: 1},
+    nextText: 32,
+},
+{
+    text: "Buy 5 arrows.",
+    inventoryChange: {silverCoin: -5, arrows: 5},
+    nextText: 32,
+},
+{
+    text: "Buy plate armor.",
+    inventoryChange: {goldCoin: -10, plateArmor: 1},
+    nextText: 32,
+},
+{
+    text: "Buy steel helmet",
+    inventoryChange: {goldCoin: -5, steelHelmet: 1},
+    nextText: 32,
+},
+{
+    text: "Talk about something else.",
+    nextText: 31,
+},
+]
+},
+{
+id: 33,
+text: "\"Show me what you want to upgrade\"\"",
+options: [
+{
+    text: "Weapon",
+    //TODO special event upgrade
+    inventoryChange: {silverCoin: -1},
+    nextText: 33,
+},
+{
+    text: "Armor",
+    //TODO special event upgrade
+    inventoryChange: {silverCoin: -1},
+    nextText: 33,
+},
+{
+    text: "Talk about something else.",
+    nextText: 31,
+},
+]
+},
+{
+id: 34,
+text: "As you approach what looks like an exploded laboratory a tiny gnome with glasses shouts at you excitedly: \"Hello! Hello! Come closer and see what Bilji Sizzlebang has to offer!\"",
+options: [
+{
+    text: "Trade",
+    nextText: 36,
+},
+{
+    text: "\"Can you teach me alchemy?\"",
+    nextText: 37,
+},
+{
+    text: "Leave",
+    nextText: 38,
+},
+]
+},
+{
+id: 35,
+text: "\"That's it? Come on man! Buy the expensive stuff.\"",
+options: [
+{
+    text: "Trade",
+    nextText: 36,
+},
+{
+    text: "\"Can you teach me alchemy?\"",
+    nextText: 37,
+},
+{
+    text: "Leave",
+    nextText: 38,
+},
+]
+},
+{
+id: 36,
+text: "\"A potion to calm your mind maybe? Or to make you *winks* better with the ladies? OH! I know! A Cursed Curse Remover!\"",
+options: [
+{
+    text: "Buy 'Cursed Curse Remover', you can see warning signs all over the bottle",
+    inventoryChange: {silverCoin: -5, cursedCurseRemover: 1},
+    nextText: 36,
+},
+{
+    text: "Buy a health potion.",
+    inventoryChange: {silverCoin: -2, healthPotion: 1},
+    nextText: 36,
+},
+{
+    text: "Buy 'BetterWithLadiez' potion. Probably a scam though.",
+    inventoryChange: {goldCoin: -1, betterWithLadiezPotion: 1},
+    nextText: 36,
+},
+{
+    text: "Buy Tranquility Potion",
+    inventoryChange: {silverCoin: -5, tranquilityPotion: 1},
+    nextText: 36,
+},
+{
+    text: "Talk about something else.",
+    nextText: 35,
+},
+]
+},
+{
+id: 37,
+text: "He stops abruptly, as to think deeply, you wait and wait. Suddenly the silence is broken by a swift \"No.\"",
+options: [
+{
+    text: "Ok",
+    nextText: 35,
+},
+{
+    text: "Mutter curse words under your nose.",
+    nextText: 35,
+},
+{
+    text: "Talk about something else.",
+    nextText: 35,
+},
+]
+},
+{
+id: 38,
+text: "As you walk further through the marketplace you see a shady looking door. You walk past it and you can hear people shouting and yelling over something. You can also see a boat at the port.",
+options: [
+{
+    text: "Investigate the shady looking door.",
+    nextText: 39,
+},
+{
+    // TODO fight special event
+    text: "See what's the yelling about.",
+    nextText: 38,
+},
+{
+    // TODO travel event
+    text: "Go check the boat.",
+    nextText: 38,
+},
+{
+    text: "Go back to the blacksmith",
+    nextText: 30,
+},
+{
+    text: "Go back to alchemist shop",
+    nextText: 34,
+},
+{
+    text: "Go back to town square.",
+    nextText: 12,
+},
+]
+},
+{
+id: 39,
+text: "You approach the door, weird humming noise comes from behind the door.",
+options: [
+{
+    text: "\"Hello?\"",
+    nextText: 40,
+},
+{
+    text: "Knock",
+    nextText: 40,
+},
+{
+    text: "Knock three times",
+    nextText: 41,
+},
+{
+    text: "Leave the door",
+    nextText: 38,
+},
+]
+},
+{
+id: 40,
+text: "A faint demonic whispers can be heard from the other side of the door: \"...paaaaassword...\"",
+options: [
+{
+    text: "\"Hello?\"",
+    nextText: 40,
+},
+{
+    text: "Knock",
+    nextText: 40,
+},
+{
+    text: "Knock three times",
+    nextText: 41,
+},
+{
+    text: "\"The paddle has been lost. Oceans are angry.\"",
+    knowledgeNeeded: {secretPassword: 1},
+    nextText: 42,
+},
+{
+    text: "Leave the door",
+    nextText: 38,
+},
+]
+},
+{
+id: 41,
+text: "Something from the other side hits the door with unbelievable force. You are suprised but happy that the door withstanded it.",
+options: [
+{
+    text: "\"Hello?\"",
+    nextText: 40,
+},
+{
+    text: "Knock",
+    nextText: 40,
+},
+{
+    text: "Knock three times",
+    nextText: 41,
+},
+{
+    text: "Leave the door",
+    nextText: 38,
+},
+]
+},
+{
+id: 42,
+text: "The door opens and you see a dark, wet passage. You can hear weird noises coming from the other side. It seems like you entered a dungeon.",
+options: [
+{
+    text: "Continue",
+    nextText: 42,
+},
+{
+    text: "Run back to safety",
+    nextText: 38,
+},
+]
+},
+
+];*/ 
