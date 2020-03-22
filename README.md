@@ -18,4 +18,5 @@
    - Using items
    - Proper currency functionality
  - More locations
+ - Quality life features like Dark Mode
  - ???
