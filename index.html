@@ -9,10 +9,17 @@
     <script defer src="build/situations/prologue.js"></script>
     <script defer src="build/situations/city.js"></script>
     <script defer src="build/index.js"></script>
+    <script defer src="build/web.js"></script>
     <link rel="stylesheet" href="src/css/index.css">
 </head>
 <body>
-<h1>WEB RPG alpha version 0.1</h1>
+<div id="bar" class="bar">
+    <h1 id="gameName">WEB RPG alpha version 0.1</h1>
+    <div class="colorMode">
+        <img src="images/light.svg" onclick=light()></img>
+        <img src="images/dark.svg"onclick=dark()></img>
+    </div>
+</div>
 <div class="game">
     <div id="statisticsBox" class="statisticsBox">
         <span id="heroicName" class="heroicName"></span><br>

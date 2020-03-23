@@ -1,6 +1,12 @@
+body {
+    margin:0;
+}
+
 h1 {
-    text-align: center;
+    margin-left: 15px;
+    text-align: right;
     font-family: "Roboto Light", sans-serif;
+    color: #000000;
 }
 
 .game {
@@ -28,7 +34,7 @@ h1 {
     -webkit-box-shadow: 10px 10px 12px -9px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 12px -9px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 12px -9px rgba(0,0,0,0.75);
-    background: rgba(15, 15, 15, 0.3);
+    background: rgba(15, 15, 15, 0.2);
 }
 .gameBox{
     width:100%;
@@ -46,7 +52,7 @@ h1 {
     -webkit-box-shadow: 10px 10px 12px -9px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 12px -9px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 12px -9px rgba(0,0,0,0.75);
-    background: rgba(15, 15, 15, 0.3);
+    background: rgba(15, 15, 15, 0.2);
 }
 
 .textBox{
@@ -73,8 +79,8 @@ h1 {
 .buttonsBox {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
     align-content: space-around;
     margin: 10px;
@@ -92,4 +98,19 @@ h1 {
 .deleteSave {
     float: left;
     margin: 5px;
+}
+
+.bar {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+    align-content: stretch;
+    width:100%;
+    background: rgba(15, 15, 15, 0.2);
+}
+
+.colorMode {
+    margin-right:15px;
 }
