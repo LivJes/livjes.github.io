@@ -14,8 +14,12 @@ function setName(name: string) {
     heroRef = new Hero(name);
     document.getElementById("statisticsBox").style.display = "flex";
     document.getElementById("gameBox").style.width = "80%";
+    document.getElementById("character").style.display = "flex";
     textElement.innerText = "It isn't a very good name but okay. So " + heroRef.name + " now that that's settled let me introduce myself. I'm Shady the shady person. We will meet again sometime. Now turn around."
     document.getElementById("heroicName").innerText = heroRef.name;
+    printStatistics();
+    heroRef.printInventory();
+    heroRef.printKnowledge();
     const button = document.createElement("button");
     button.innerText = "Turn around";
     button.classList.add("button");
@@ -39,7 +43,11 @@ function startGame() {
     } else {
         showText(heroRef.stage.id, heroRef.stage.name);
         document.getElementById("statisticsBox").style.display = "flex";
+        document.getElementById("character").style.display = "flex";
         document.getElementById("gameBox").style.width = "80%";
+        printStatistics();
+        heroRef.printInventory();
+        heroRef.printKnowledge();
     }
 }
 

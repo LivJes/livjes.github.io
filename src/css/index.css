@@ -57,7 +57,7 @@ h1 {
 
 .character {
     width:95%;
-    display: flex;
+    display: none;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
