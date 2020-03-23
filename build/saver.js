@@ -4,6 +4,8 @@ function saveGame() {
         stageName: heroRef.stage.name,
         name: heroRef.name,
         hp: heroRef.hp,
+        level: heroRef.level,
+        xp: heroRef.xp,
     };
     var inventory = heroRef.inventory;
     var knowledge = heroRef.knowledge;
@@ -18,6 +20,8 @@ function loadGame() {
         heroRef.stage.id = file.stageId;
         heroRef.stage.name = file.stageName;
         heroRef.hp = file.hp;
+        heroRef.level = file.level;
+        heroRef.xp = file.xp;
         heroRef.inventory = JSON.parse(localStorage.getItem('inventorySaveFile'));
         heroRef.knowledge = JSON.parse(localStorage.getItem('knowledgeSaveFile'));
         printStatistics();

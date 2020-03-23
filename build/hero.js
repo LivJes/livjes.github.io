@@ -8,6 +8,8 @@ var Hero = /** @class */ (function () {
             this.name = newName;
         }
         this.hp = 100;
+        this.level = 1;
+        this.xp = 0;
     }
     Hero.prototype.setName = function (newName) {
         this.name = newName;
@@ -36,9 +38,9 @@ var Hero = /** @class */ (function () {
         var _this = this;
         var knowledgeText = "";
         Object.keys(this.knowledge).forEach(function (key) {
-            //if(this.knowledge[key] != 0) {
-            knowledgeText = knowledgeText + "\n" + key + ": " + _this.knowledge[key];
-            // }
+            if (_this.knowledge[key] != 0) {
+                knowledgeText = knowledgeText + "\n" + key + ": " + _this.knowledge[key];
+            }
         });
         document.getElementById("knowledge").innerText = knowledgeText;
     };
@@ -80,6 +82,12 @@ var Hero = /** @class */ (function () {
     };
     Hero.prototype.getStage = function () {
         return this.stage;
+    };
+    Hero.prototype.countXp = function () {
+        var number;
+        number = Math.round((heroRef.xp / (heroRef.level * 100)) * 100);
+        number = isFinite(number) ? number : 0;
+        return "Progress to next level: " + number + "\%";
     };
     return Hero;
 }());

@@ -2,6 +2,8 @@ class Hero {
     stage: {id:number, name:string} = {id:0, name:"prologue"};
     name:string = "Bob";
     hp:number;
+    level:number;
+    xp:number;
     inventory: {[key:string]: number} = {silverCoin: 500};
     knowledge: {[key:string]: number} = {secretPassword: 0};
 
@@ -10,6 +12,8 @@ class Hero {
             this.name = newName;
         }
         this.hp = 100;
+        this.level = 1;
+        this.xp = 0;
     }
 
     setName(newName:string) {
@@ -38,9 +42,9 @@ class Hero {
     printKnowledge() {
         let knowledgeText :string = "";
         Object.keys(this.knowledge).forEach(key => {
-            //if(this.knowledge[key] != 0) {
+            if(this.knowledge[key] != 0) {
                 knowledgeText = knowledgeText + "\n"+  key + ": " + this.knowledge[key];
-           // }
+            }
         });
         document.getElementById("knowledge").innerText = knowledgeText;
     }
@@ -85,5 +89,12 @@ class Hero {
 
     getStage() {
         return this.stage;
+    }
+
+    countXp() {
+        let number:number;
+        number = Math.round((heroRef.xp/(heroRef.level*100))*100);
+        number = isFinite(number) ? number : 0;
+        return "Progress to next level: "+number+"\%"
     }
 }

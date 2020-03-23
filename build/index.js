@@ -68,6 +68,9 @@ function showOption(option) {
 }
 function printStatistics() {
     document.getElementById("heroicName").innerText = heroRef.name;
+    document.getElementById("hp").innerText = "HP: " + heroRef.hp.toString();
+    document.getElementById("level").innerText = "Level: " + heroRef.level.toString();
+    document.getElementById("xp").innerText = heroRef.countXp();
     document.getElementById("statisticsTextDecisions").innerText = decisionsCounter.toString();
 }
 function selectOption(option, situationName) {

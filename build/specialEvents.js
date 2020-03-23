@@ -18,7 +18,7 @@ function chess() {
     var button = document.createElement("button");
     button.innerText = "\"Okay\"";
     button.classList.add("button");
-    button.addEventListener("click", function () { return showText(23, "cityMainSquare"); });
+    button.addEventListener("click", function () { return showText(12, "cityMainSquare"); });
     optionButtons.appendChild(button);
 }
 function fortune() {
@@ -51,6 +51,6 @@ function fortune() {
     var button = document.createElement("button");
     button.innerText = "\"Okay\"";
     button.classList.add("button");
-    button.addEventListener("click", function () { return showText(27, "cityMainSquare"); });
+    button.addEventListener("click", function () { return showText(15, "cityMainSquare"); });
     optionButtons.appendChild(button);
 }

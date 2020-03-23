@@ -55,6 +55,29 @@ h1 {
     background: rgba(15, 15, 15, 0.2);
 }
 
+.character {
+    width:95%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: baseline;
+    align-content: flex-start;
+    margin: 15px 15px 15px 15px;
+    border-radius: 18px 18px 18px 18px;
+    -moz-border-radius: 18px 18px 18px 18px;
+    -webkit-border-radius: 18px 18px 18px 18px;
+    border: 0 solid #000000;
+    -webkit-box-shadow: 10px 10px 12px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 12px -9px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 12px -9px rgba(0,0,0,0.75);
+    background: rgba(15, 15, 15, 0.2);
+}
+
+.characterBox{
+    margin: 15px 15px 15px 15px;
+}
+
 .textBox{
     margin: 10px;
     font-family: "Roboto Light", sans-serif;
@@ -66,13 +89,28 @@ h1 {
     font-size: 120%;
 }
 
+.hp{
+    margin: 0px 10px 0px 10px;
+    font-family: "Roboto Light", sans-serif;
+}
+
+.level{
+    margin: 0px 10px 0px 10px;
+    font-family: "Roboto Light", sans-serif;
+}
+
+.xp{
+    margin: 0px 10px 0px 10px;
+    font-family: "Roboto Light", sans-serif;
+}
+
 .inventory{
-    margin: 0px 10px 5px 10px;
+    margin: 0px 10px 0px 10px;
     font-family: "Roboto Light", sans-serif;
 }
 
 .knowledge{
-    margin: 0px 10px 10px 10px;
+    margin: 0px 10px 0px 10px;
     font-family: "Roboto Light", sans-serif;
 }
 

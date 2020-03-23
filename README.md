@@ -10,6 +10,7 @@
  - Trading (obtaining and giving items)
  - Special events (chess, fortune teller)
  - Progress saving
+ - Dark Mode
  
  **TODO FEATURES**
  - Fighting system
@@ -18,5 +19,4 @@
    - Using items
    - Proper currency functionality
  - More locations
- - Quality life features like Dark Mode
  - ???

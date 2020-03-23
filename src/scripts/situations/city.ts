@@ -28,7 +28,7 @@ const cityMainSquare = [
         },
         {
             text: "Approach the guy in the corner",
-            nextText: 20,
+            nextText: 9,
         },
     ]
 },
@@ -190,7 +190,7 @@ const cityMainSquare = [
         {
             text: "Tell me my future.",
             specialEvent: 1,
-            //inventoryChange: {silverCoin: -1},
+            inventoryChange: {silverCoin: -1},
             nextText: 15,
         },
         {
@@ -214,7 +214,7 @@ const cityMainSquare = [
         {
             text: "Tell me my future.",
             specialEvent: 1,
-            //inventoryChange: {silverCoin: -1},
+            inventoryChange: {silverCoin: -1},
             nextText: 15,
         },
         {
@@ -264,7 +264,7 @@ const cityMainSquare = [
         {
             text: "Tell me my future.",
             specialEvent: 1,
-            //inventoryChange: {silverCoin: -1},
+            inventoryChange: {silverCoin: -1},
             nextText: 15,
         },
         {
