@@ -1,6 +1,6 @@
 # WEB RPG (work in progress name only)
 
-[Play here](http://livjes.github.io)
+[Play here](http://livjes.github.io/web-rpg)
  
  Web RPG is a browser text-based RPG game. You create your character and wander through the world. What will your adventure bring? No one knows, not even me as it is not finished yet.
  
